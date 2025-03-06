@@ -1,20 +1,18 @@
 import React from "react";
-import { Box, Typography, Grid2 as Grid, Paper, Card, CardContent, CardMedia, Container } from "@mui/material";
+import { Box, Typography, Grid2 as Grid, Paper, Card, CardContent, CardMedia, Container, Divider, Link } from "@mui/material";
 import { differenceInMonths, differenceInDays, parse } from "date-fns";
 
-import { Navigation, Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './assets/styles.css';
+
 import TawkToWidget from "./TawkToWidget";
+import ImageSlider from "./ImagemSlider";
 
 const CarSalePage: React.FC = () => {
-  
+
   const calcularDiferenca = (data: string) => {
     const hoje = new Date();
     const dataFormatada = parse(data, "dd/MM/yyyy", new Date());
@@ -27,6 +25,14 @@ const CarSalePage: React.FC = () => {
     }
 
     return `${dias} dia${dias > 1 ? "s" : ""}`;
+  };
+
+  const openChat = () => {
+    if (window.Tawk_API) {
+      window.Tawk_API.maximize(); // Abre a tela de chat
+    } else {
+      alert('O chat ainda não está carregado. Por favor, aguarde.');
+    }
   };
 
 
@@ -97,15 +103,12 @@ const CarSalePage: React.FC = () => {
                     voz e entrada USB; <br />
                     - <strong>Sky View:</strong> Teto solar panorâmico; <br />
                     - <strong>Tech &amp; Beats:</strong> Park Assist 3.0, faróis full-LED
-                    e sistema de som “Beats” com subwoofer.
+                    e sistema de som “Beats” com subwoofer. <br />
+                    - <strong>We Connect Go:</strong> Com dispositivo DataPlug para monitoramento do carro pelo smartphone.
                   </Typography>
                   <Typography variant="body1">
                     <strong>Dimensões:</strong> Comprimento ~4,2 m, entre-eixos de 2,65 m,
                     porta-malas entre 373 e 420 litros.
-                  </Typography>
-
-                  <Typography variant="h4" color="error">
-                    <strong>Fotos em breve</strong>
                   </Typography>
                 </Paper>
               </Grid>
@@ -115,7 +118,7 @@ const CarSalePage: React.FC = () => {
                   sx={{ p: 2, height: "100%", boxSizing: "border-box" }}
                 >
                   <Typography variant="h6" gutterBottom>
-                    Detalhes e dúvidas esclarecidas durante o chat.
+                    <strong>Dúvidas Frequentes</strong> – Respondidas no Chat
                   </Typography>
                   <Typography variant="body1" gutterBottom>
                     <strong>Km:</strong> 31.000
@@ -132,12 +135,19 @@ const CarSalePage: React.FC = () => {
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
               <CardMedia
                 component="img"
-                image="https://placehold.co/600x400/gray/white"
+                image={`${import.meta.env.BASE_URL}/destaque.jpg`}
                 alt="Descrição da imagem do produto"
               />
               <CardContent>
                 <Typography variant="h2" component="div">
-                  R$ 120.000,00
+                  R$ 123.000,00
+                </Typography>
+                <Divider />
+                <Typography variant="h6" marginTop={2} marginBottom={2}>
+                  Se você chegou até aqui, é porque já viu o carro pessoalmente e demonstrou interesse.
+                </Typography>
+                <Typography variant="h6">
+                  <strong>Vamos conversar?</strong> Fale comigo através do chat clicando <Link href="#" onClick={(e) => { e.preventDefault(); openChat() }}>aqui</Link> para tirar suas dúvidas, solicitar mais informações ou negociar.
                 </Typography>
               </CardContent>
             </Card>
@@ -152,21 +162,7 @@ const CarSalePage: React.FC = () => {
               <Typography variant="h6" gutterBottom>
                 Galeria de Fotos
               </Typography>
-              <Swiper
-                modules={[Pagination, Navigation]}
-                pagination={{
-                  type: 'bullets',
-                }}
-                effect={'fade'}
-                navigation={true}
-                autoHeight={true}
-              >
-                <SwiperSlide><img src="https://placehold.co/600x400/orange/white" alt="Imagem 1" /></SwiperSlide>
-                <SwiperSlide><img src="https://placehold.co/1200x400" alt="Imagem 2" /></SwiperSlide>
-                <SwiperSlide><img src="https://placehold.co/600x1400" alt="Imagem 2" /></SwiperSlide>
-                <SwiperSlide><img src="https://placehold.co/600x400" alt="Imagem 2" /></SwiperSlide>
-                <SwiperSlide><img src="https://placehold.co/600x400" alt="Imagem 2" /></SwiperSlide>
-              </Swiper>
+              <ImageSlider />
             </Paper>
           </Grid>
         </Grid>
