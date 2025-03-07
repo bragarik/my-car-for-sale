@@ -124,7 +124,7 @@ const CarSalePage: React.FC = () => {
                     <strong>Km:</strong> 31.000
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    <strong>Bateria:</strong> Primeira troca dia a {calcularDiferenca("10/02/2025")}
+                    <strong>Bateria:</strong> Primeira troca a {calcularDiferenca("10/02/2025")}
                   </Typography>
                 </Paper>
               </Grid>
