@@ -121,10 +121,13 @@ const CarSalePage: React.FC = () => {
                     <strong>Dúvidas Frequentes</strong> – Respondidas no Chat
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    <strong>Km:</strong> 31.000
+                    <strong>Unico dono?</strong> Sim
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    <strong>Bateria:</strong> Primeira troca a {calcularDiferenca("10/02/2025")}
+                    <strong>Km?</strong> 32.000
+                  </Typography>
+                  <Typography variant="body1" gutterBottom>
+                    <strong>Bateria?</strong> Primeira troca a {calcularDiferenca("10/02/2025")}
                   </Typography>
                 </Paper>
               </Grid>
@@ -140,7 +143,7 @@ const CarSalePage: React.FC = () => {
               />
               <CardContent>
                 <Typography variant="h2" component="div">
-                  R$ 123.000,00
+                  R$ 124.000,00
                 </Typography>
                 <Divider />
                 <Typography variant="h6" marginTop={2} marginBottom={2}>
