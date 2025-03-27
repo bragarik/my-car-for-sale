@@ -129,6 +129,15 @@ const CarSalePage: React.FC = () => {
                   <Typography variant="body1" gutterBottom>
                     <strong>Bateria?</strong> Primeira troca a {calcularDiferenca("10/02/2025")}
                   </Typography>
+                  <Typography variant="body1" gutterBottom>
+                    <strong>Pneus?</strong> Originais, porém, precisam ser trocados em breve.
+                  </Typography>
+                  <Typography variant="body1" gutterBottom>
+                    <strong>IPVA?</strong> Licenciado 2025.
+                  </Typography>
+                  <Typography variant="body1" gutterBottom>
+                    <strong>Laudo Cautelar?</strong> Laudo cautelar completo pago. <i>Laudos cautelares têm duração de 1 dia, então será realizado após fechar negócio, mas antes da entrega e pagamento do carro.</i>
+                  </Typography>
                 </Paper>
               </Grid>
             </Grid>
